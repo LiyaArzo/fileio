@@ -44,27 +44,17 @@ def show_history():
         return
     history_window = Toplevel()
     history_window.title('История загрузок')
-    history_window.geometry('500x300')
-    history_text = Text(history_window,width = 60, height = 18)
+    history_window.geometry('700x300')
+    history_text = Text(history_window,width = 82, height = 18)
     history_text.pack(side=LEFT)
     scroll = Scrollbar(history_window,command=history_text.yview)
     scroll.pack(side=LEFT, fill=Y)
     history_text.config(yscrollcommand=scroll.set)
-#def show_history():
-#    if not os.path.exists(history_file):
-#        mb.showinfo('История', 'История загрузок пуста')
-#        return
-#    history_window = Toplevel()
-#    history_window.title('История загрузок')
-#    files_listbox = Listbox(history_window,width=50,height=20)
-#    files_listbox.grid(row=0,column=0,padx=(10,0),pady=10)
- #   links_listbox = Listbox(history_window, width=50, height=20)
- #   links_listbox.grid(row=0, column=1, padx=(0, 10), pady=10)
- #   with open(history_file,'r') as f:
- #       history = json.load(f)
-  #      for item in history:
-  #          files_listbox.insert(END,item['file_path'])
-  #          links_listbox.insert(END, item['download_link'])
+    with open(history_file, 'r') as f:
+        history = json.load(f)
+        for item in history:
+          res_text = f'Файл: {item['file_path']}, ссылка: {item['download_link']}\n'
+          history_text.insert(END, res_text)
 
 
 window = Tk()
