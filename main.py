@@ -15,7 +15,7 @@ def save_history(filepath,link):
     if os.path.exists(history_file):
         with open(history_file,'r') as f:
             history = json.load(f)
-    history.append({'file.path': os.path.basename(filepath), 'download_link':link})
+    history.append({'file_path': os.path.basename(filepath), 'download_link':link})
     with open(history_file,'w') as f:
         json.dump(history,f,indent=4)
 
