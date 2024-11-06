@@ -57,15 +57,15 @@ def show_history():
 
 window = Tk()
 window.title('Сохранение файлов в облаке')
-window.geometry('400x200')
+window.geometry('340x120')
 
 button = ttk.Button(text='Загрузить файл', command=upload)
-button.pack()
+button.pack(pady=10)
 
-entry = ttk.Entry()
-entry.pack()
+entry = ttk.Entry(width=280)
+entry.pack(padx=10)
 
 history_btn = ttk.Button(text='Показать историю', command=show_history)
-history_btn.pack()
+history_btn.pack(pady=10)
 
 window.mainloop()
